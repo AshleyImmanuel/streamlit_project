@@ -24,9 +24,9 @@ st.set_page_config(page_title="IPL Analysis Capstone", layout="wide")
 # -----------------------
 # Background image setting
 # -----------------------
-BACKGROUND_IMAGE_PATH = "assets/cricket2.jpeg"
+BACKGROUND_IMAGE_PATH = "streamlit_project/Streamli_app_leo/my-streamlit-app/assets/cricket2.jpeg"
 
-_internal_mnt_path = os.path.join("assets/cricket2.jpeg", BACKGROUND_IMAGE_PATH)
+_internal_mnt_path = os.path.join("streamlit_project/Streamli_app_leo/my-streamlit-app/assets/cricket2.jpeg", BACKGROUND_IMAGE_PATH)
 if os.path.isfile(_internal_mnt_path):
     _bg_path_to_use = _internal_mnt_path
 elif os.path.isfile(BACKGROUND_IMAGE_PATH):
@@ -726,8 +726,8 @@ if page == "Predict":
                 st.error(f"Prediction failed: {e}")
 
 st.write("[LinkedIn](https://www.linkedin.com/in/ashley-immanuel-81609731b/)")
-gt_logo_path = 'assets/gt.jpg'
-rajagiri_logo_path = 'assets/rajagiri.png'
+gt_logo_path = 'streamlit_project/Streamli_app_leo/my-streamlit-app/assets/gt.jpg'
+rajagiri_logo_path = 'streamlit_project/Streamli_app_leo/my-streamlit-app/assets/rajagiri.png'
 st.image("assets/gt.jpg", caption="GT Logo", use_column_width=True)
 st.image("assets/rajagiri.png", caption="Rajagiri Logo", use_column_width=True)
 
@@ -747,5 +747,6 @@ st.markdown(team_info)
 # Footer
 st.markdown("---")
 st.markdown("Notes: This app uses only pre-match features. Improve accuracy by adding player stats, recent form, head-to-head stats, roster changes, etc.")
+
 
 
