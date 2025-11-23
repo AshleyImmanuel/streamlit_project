@@ -726,6 +726,8 @@ if page == "Predict":
                 st.error(f"Prediction failed: {e}")
 
 st.write("[LinkedIn](https://www.linkedin.com/in/ashley-immanuel-81609731b/)")
+gt_logo_path = 'assets/gt.jpg'
+rajagiri_logo_path = 'assets/rajagiri.png'
 st.image("assets/gt.jpg", caption="GT Logo", use_column_width=True)
 st.image("assets/rajagiri.png", caption="Rajagiri Logo", use_column_width=True)
 
@@ -745,4 +747,5 @@ st.markdown(team_info)
 # Footer
 st.markdown("---")
 st.markdown("Notes: This app uses only pre-match features. Improve accuracy by adding player stats, recent form, head-to-head stats, roster changes, etc.")
+
 
