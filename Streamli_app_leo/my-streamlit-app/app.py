@@ -727,7 +727,22 @@ if page == "Predict":
 
 st.write("[LinkedIn](https://www.linkedin.com/in/ashley-immanuel-81609731b/)")
 
+team_info = """
+**Team 4**  
+Ashley Immanuel  
+Gautham K Surendran  
+Mathew Sibi  
+Leo Bernard  
+Nibin Biju  
+Midhul Sasikumar  
+Shikha Sachin
+"""
+
+# Display the team info
+st.markdown(team_info)
+
 
 # Footer
 st.markdown("---")
 st.markdown("Notes: This app uses only pre-match features. Improve accuracy by adding player stats, recent form, head-to-head stats, roster changes, etc.")
+
