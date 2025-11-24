@@ -24,15 +24,15 @@ st.set_page_config(page_title="IPL Analysis Capstone", layout="wide")
 # -----------------------
 # Background image setting
 # -----------------------
-BACKGROUND_IMAGE_PATH = "assets/cricket2.jpeg"
+# Resolve path relative to this file:
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BACKGROUND_IMAGE_PATH = os.path.join(BASE_DIR, "assets", "cricket2.jpeg")
 
-_internal_mnt_path = os.path.join("/mnt/data", BACKGROUND_IMAGE_PATH)
-if os.path.isfile(_internal_mnt_path):
-    _bg_path_to_use = _internal_mnt_path
-elif os.path.isfile(BACKGROUND_IMAGE_PATH):
+if os.path.isfile(BACKGROUND_IMAGE_PATH):
     _bg_path_to_use = BACKGROUND_IMAGE_PATH
 else:
     _bg_path_to_use = None
+    st.warning(f"Background image not found at: {BACKGROUND_IMAGE_PATH}")
 
 def set_background_image(image_file_path):
     if image_file_path is None:
@@ -49,18 +49,23 @@ def set_background_image(image_file_path):
     st.markdown(
         f"""
         <style>
-        header, footer, .css-18e3th9, .reportview-container header {{
+        /* Hide default Streamlit header & footer (optional) */
+        [data-testid="stHeader"], footer {{
             visibility: hidden;
             height: 0px;
             margin: 0px;
             padding: 0px;
         }}
+
+        /* Main page padding */
         .block-container {{
             padding-top: 1rem;
             padding-bottom: 2rem;
             padding-left: 2rem;
             padding-right: 2rem;
         }}
+
+        /* Background image on app root */
         .stApp {{
             background-image: url("data:{mime};base64,{data}");
             background-size: cover;
@@ -68,14 +73,20 @@ def set_background_image(image_file_path):
             background-attachment: fixed;
             background-position: center;
         }}
-        .main .block-container {{
+
+        /* White glass overlay for main content */
+        .stApp > [data-testid="block-container"] {{
             background-color: rgba(255, 255, 255, 0.88);
             border-radius: 10px;
         }}
-        .stSidebar {{
+
+        /* Sidebar transparent */
+        [data-testid="stSidebar"] > div:first-child {{
             background-color: transparent !important;
             border-right: none;
         }}
+
+        /* Title glow animation */
         @keyframes glow {{
             0% {{ color: #2196F3; text-shadow: 0 0 5px rgba(33, 150, 243, 0.5); }}
             50% {{ color: #FFC107; text-shadow: 0 0 10px #FFC107, 0 0 20px #FF9800; }}
@@ -92,7 +103,15 @@ def set_background_image(image_file_path):
         unsafe_allow_html=True,
     )
 
+# Call background function
 set_background_image(_bg_path_to_use)
+
+# -----------------------
+# Rest of your app
+# -----------------------
+# st.title("IPL Analysis Capstone")
+# ...
+
 
 st.title("IPL Cricket Analysis — Capstone Project (Streamlit + ML)")
 st.markdown(
@@ -747,6 +766,7 @@ st.markdown(team_info)
 # Footer
 st.markdown("---")
 st.markdown("Notes: This app uses only pre-match features. Improve accuracy by adding player stats, recent form, head-to-head stats, roster changes, etc.")
+
 
 
 
