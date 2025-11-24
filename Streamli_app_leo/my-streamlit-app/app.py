@@ -736,6 +736,7 @@ Leo Bernard
 Nibin Biju  
 Midhul Sasikumar  
 Shikha Sachin
+
 Sonu Babu
 """
 
@@ -746,5 +747,6 @@ st.markdown(team_info)
 # Footer
 st.markdown("---")
 st.markdown("Notes: This app uses only pre-match features. Improve accuracy by adding player stats, recent form, head-to-head stats, roster changes, etc.")
+
 
 
